@@ -28,9 +28,18 @@
                                asp-controller="Home" asp-action="Index">Home</a>
                                <!--Burada tek satırlık if else yapısı kullanılmıştır ... ? ... : ... cevap evetse yani activse css de yazılan alt çizgi gözükür değilse gözükmez-->
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item dropdown">
                             <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")"
-                               asp-controller="Home" asp-action="About">About</a>
+                               asp-controller="Home" asp-action="About"
+                               id="aboutDropdown">
+                                About
+                            </a>
+
+                            <ul class="dropdown-menu border-0 shadow" aria-labelledby="aboutDropdown">
+                                <li><a class="dropdown-item" href="/Home/About#fitness">Fitness</a></li>
+                                <li><a class="dropdown-item" href="/Home/About#pilates">Pilates</a></li>
+                                <li><a class="dropdown-item" href="/Home/About#yoga">Yoga</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Trainer" ? "active" : "")"
@@ -41,8 +50,8 @@
                                asp-controller="Home" asp-action="Program">Workout Program</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")"
-                               asp-controller="Home" asp-action="Contact">Get in Touch</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Appointment" ? "active" : "")"
+                               asp-controller="Home" asp-action="Appointment">Get in Touch</a>
                         </li>
                     </ul>
 

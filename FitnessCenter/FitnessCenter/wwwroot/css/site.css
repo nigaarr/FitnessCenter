@@ -95,3 +95,61 @@ body {
 nav.navbar {
     transition: background-color 0.3s ease;
 }
+
+/* Masaüstünde hover ile açılması için */
+@media all and (min-width: 992px) {
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+/* --- ABOUT DROPDOWN ÖZELLEŞTİRME --- */
+
+/* 1. Kutunun Arka Planını Şeffaf Yap */
+.dropdown-menu {
+    background-color: transparent !important; /* Arka plan yok */
+    border: none !important; /* Çerçeve çizgisi yok */
+    box-shadow: none !important; /* Gölge yok (Sadece havada duran yazılar gibi görünür) */
+    margin-top: 0 !important; /* Menü ile yazı arasındaki boşluğu alır */
+}
+
+/* 2. Linklerin Rengi */
+.dropdown-item {
+    color: #0b2239 !important; /* Koyu Mavi */
+    font-weight: 500; /* Normal hali biraz okunaklı olsun */
+    padding: 10px 15px; /* Tıklama alanı biraz geniş olsun */
+    transition: all 0.3s ease; /* Kalınlaşma animasyonu yumuşak olsun */
+}
+
+    /* 3. Mouse Üzerine Gelince (Hover) */
+    .dropdown-item:hover, .dropdown-item:focus {
+        font-weight: bold !important; /* Yazıyı KALIN yap */
+        background-color: transparent !important; /* Bootstrap'in gri arka planını engelle */
+        color: #0b2239 !important; /* Rengi koru */
+        /* İsteğe bağlı: Hafif sağa kayma efekti de verilebilir, çok şık durur: */
+        transform: translateX(10px);
+        
+    }
+
+/* Fiyat Kartları İçin Animasyon */
+.pricing-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .pricing-card:hover {
+        transform: translateY(-10px); /* Mouse gelince yukarı kalkar */
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+    }
+
+/* Kırmızı Kart (Standard) için Özel Efekt */
+.pricing-card-red {
+    transition: transform 0.3s ease;
+    border: 1px solid #b90000;
+}
+
+    .pricing-card-red:hover {
+        /* Zaten scale(1.05) olduğu için biraz daha büyütmeye gerek yok, 
+       ama gölgesini artırabiliriz */
+        box-shadow: 0 1rem 3rem rgba(185, 0, 0, 0.4) !important;
+    }

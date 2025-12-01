@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using FitnessCenter.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +20,21 @@ namespace FitnessCenter.Controllers
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        // ABOUT Sayfasını açan metod
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        // RANDEVU Sayfasını açan metod (Fiyat planını parametre olarak alır)
+        [HttpGet]
+        public IActionResult Appointment(string plan)
+        {
+            // Seçilen planı (Basic, Standard vs.) sayfaya taşıyoruz
+            ViewBag.SelectedPlan = plan;
             return View();
         }
 
