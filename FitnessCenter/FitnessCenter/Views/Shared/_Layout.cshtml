@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FitnessCenter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FitnessCenter.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top"> <!--Burada navabar-expand-lg hem pc hem de telefon tablet görünümü için navabrı düzenler -->
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3 text-darkblue" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-activity"></i> FITNESS CENTER
+                </a>  <!--ap yazılanlar tabii ki de tag helper burada tıklandığı zaman bizi /Home/Index yöneltir-->
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>  <!--Bu button teelfon tabletde gözükülen ya da pencere küçültüldüğünde gözükür ve tıklandığında navbar content gözükür -->
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"
+                               asp-controller="Home" asp-action="Index">Home</a>
+                               <!--Burada tek satırlık if else yapısı kullanılmıştır ... ? ... : ... cevap evetse yani activse css de yazılan alt çizgi gözükür değilse gözükmez-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")"
+                               asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Trainer" ? "active" : "")"
+                               asp-controller="Home" asp-action="Trainer">Personal Trainer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Program" ? "active" : "")"
+                               asp-controller="Home" asp-action="Program">Workout Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")"
+                               asp-controller="Home" asp-action="Contact">Get in Touch</a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex justify-content-center gap-2">
+                        <a class="btn btn-outline-darkblue rounded-pill px-4 fw-bold" asp-controller="Home" asp-action="Log">Log in</a>
+                        <a class="btn btn-darkblue rounded-pill px-4 fw-bold shadow-sm" asp-controller="Home" asp-action="Join">Join Us</a>
+                    </div> <!-- log in ve join us buttonları outline varsa içi boş yoksa içi dolu olduğunu gösderir -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!---<div class="container">
+        <main role="main" class="pb-3">
+         @*   @RenderBody()*@ 
+        </main>     burası welcome yazılan kısım orasını commentledim olmasın diye
+    </div>-->
+    <!-- <<footer class="border-top footer text-muted">
+       <div class="container">
+            &copy; 2025 - FitnessCenter - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>-->
+
+    <main role="main">
+        @RenderBody()
+    </main>  <!--Bu kısım çok önemli yani RenderBody() yazılan kısım çünki burası 
+
+    Index.cshtml deki kodalrın çıktısını gösderir yani içerik sayfasının işlenmesinin sonucunu gösderir-->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

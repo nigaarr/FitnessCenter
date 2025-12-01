@@ -1,0 +1,97 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    padding-top: 0 !important;
+}
+/* --- ÖZEL RENK TANIMLAMASI (KOYU MAVİ) --- */
+:root {
+    --dark-blue: #0b2239; /* Çok koyu, asil bir mavi */
+    --hover-blue: #1a4a7c; /* Üzerine gelince biraz daha parlak mavi */
+}
+
+/* --- NAVBAR LİNKLERİ --- */
+.nav-link {
+    color: #555 !important; /* Standart gri ton */
+    font-weight: 600;
+    margin-right: 15px;
+    position: relative; /* Alt çizgi animasyonu için gerekli */
+    transition: color 0.3s ease;
+}
+
+    /* 1. İSTEK: Üzerine gelince (Hover) yazı koyulaşsın ve renklensin */
+    .nav-link:hover {
+        color: var(--dark-blue) !important;
+    }
+
+    /* 2. İSTEK: Aktif sayfada ve Hover'da Alt Çizgi Efekti */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px; /* Çizgi kalınlığı */
+        bottom: 0;
+        left: 0;
+        background-color: var(--dark-blue);
+        transition: width 0.3s ease; /* Çizginin uzama animasyonu */
+    }
+
+    /* Hover olunca veya 'active' sınıfı varsa çizgi %100 olsun */
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+
+    /* Aktif olan linkin rengi de hep koyu mavi kalsın */
+    .nav-link.active {
+        color: var(--dark-blue) !important;
+    }
+
+/* --- LOGO VE BUTONLAR İÇİN KOYU MAVİ TEMASI --- */
+.text-darkblue {
+    color: var(--dark-blue) !important;
+}
+
+/* Koyu Mavi Buton (Join Us) */
+.btn-darkblue {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+    color: white;
+}
+
+    .btn-darkblue:hover {
+        background-color: var(--hover-blue);
+        color: white;
+    }
+
+/* Çizgili Mavi Buton (Log in) */
+.btn-outline-darkblue {
+    color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+    .btn-outline-darkblue:hover {
+        background-color: var(--dark-blue);
+        color: white;
+    }
+
+
+nav.navbar {
+    transition: background-color 0.3s ease;
+}

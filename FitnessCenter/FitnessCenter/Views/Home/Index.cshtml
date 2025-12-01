@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid" style="background-color: #e6f7f7; min-height: 100vh; padding-top: 100px;">
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+
+            <div class="col-lg-6 text-star py-5 mt-5 pt-5">
+                <h1 class="display-1 fw-bold">
+                    <span style="color: #7e9dbd !important;">Fit.</span>
+                    <br>
+                    <span style="color: #577a9e !important;">Fast.</span>
+                    <br>
+                    <span style="color: #0b2239 !important;">Forever.</span>
+                </h1>
+
+
+                <div class="mt-5">
+                    <a asp-controller="Home" asp-action="Join"
+                       class="btn btn-darkblue btn-lg rounded-pill px-5 py-3 fw-bold shadow">
+                        TRAIN WITH US <i class="bi bi-arrow-right-circle ms-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-star ps-4" style="margin-top: -70px;">
+                <img src="/images/homepage.png" alt="Fitness Model" class="img-fluid"
+                     style="max-height: 600px;">
+            </div>
+
+        </div>
+    </div>
+</div>
