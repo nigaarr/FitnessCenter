@@ -153,3 +153,24 @@ nav.navbar {
        ama gölgesini artırabiliriz */
         box-shadow: 0 1rem 3rem rgba(185, 0, 0, 0.4) !important;
     }
+
+/* --- LOCATIONS & HOURS İNTERAKTİF KUTULAR --- */
+.interactive-badge {
+    cursor: pointer; /* Mouse el işareti olur */
+    transition: all 0.3s ease; /* Hareket yumuşak olsun */
+}
+
+    .interactive-badge:hover {
+        transform: translateY(-5px); /* Hafif yukarı kalkar */
+    }
+
+        /* Hover olunca içindeki beyaz kutunun kenarlığı kırmızı olsun */
+        .interactive-badge:hover .shadow-sm {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+            border: 1px solid #0b2239; /* Kırmızı çerçeve */
+        }
+
+/* Yoga bölümü için özel Koyu Yeşil rengi */
+.text-darkgreen {
+    color: #013220 !important; /* Çok şık, derin bir orman yeşili */
+}
